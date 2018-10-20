@@ -42,15 +42,15 @@ class UserForm extends React.Component{
 
 	render(){
 		//create list of options for date of birth field
-		const daysOption =  Array.from({length: 31}, (v, k) => k+1).map((item, index)=>
+		let daysOption =  Array.from({length: 31}, (v, k) => k+1).map((item, index)=>
 			<option key={index}>{item}</option> 
 		);
 
-		const yearsOption =  Array.from({length: 98}, (v, k) => k+1920).map((item, index)=>
+		let yearsOption =  Array.from({length: 98}, (v, k) => k+1920).map((item, index)=>
 			<option key={index}>{item}</option>
 		);
 
-		const monthsOption = ["Января", "Февраля", "Марта", "Апреля", "Мая", 
+		let monthsOption = ["Января", "Февраля", "Марта", "Апреля", "Мая", 
 		"Июня", "Июля", "Августа", "Сентября",
 		 "Октября", "Ноября", "Декабря"].map((item, index)=>
 		 <option key={index}>{item}</option>
@@ -71,7 +71,7 @@ class UserForm extends React.Component{
 						 required
 						/>
 						<div className="invalid-feedback">
-							Пожалуйста, вашу укажите фамилию, имя, отчество.
+							Пожалуйста, укажите вашу фамилию, имя, отчество.
 						</div>
 
 					</div>
@@ -82,11 +82,10 @@ class UserForm extends React.Component{
 						<div className="form-row">
 
 					    <div className="col">
-								<select id="birday" ref="birthday" 
-									className="form-control form-control-sm"  
-									defaultValue={'День'} 
-									required>
-									{[<option key={'45id'} disabled value="День">День</option>,...daysOption]}
+								<select required id="birday" ref="birthday" 
+									class="custom-select custom-select-sm"  
+									>
+									{[<option key={'45id'} value='' hidden>День</option>,...daysOption]}
 								</select>
 								<div className="invalid-feedback">
 									Пожалуйста, укажите дату рождения.
@@ -94,14 +93,14 @@ class UserForm extends React.Component{
 					    </div>
 
 					    <div className="col">
-								<select ref="monthOfBirth"  className="form-control form-control-sm" defaultValue={'Месяц'} required>
-			  					{[<option key={'46id'} disabled value="Месяц">Месяц</option>,...monthsOption]}
+								<select ref="monthOfBirth"  class="custom-select custom-select-sm"  required>
+			  					{[<option key={'46id'}  value='' hidden>Месяц</option>,...monthsOption]}
 								</select>
 					    </div>
 
 							<div className="col">
-								<select  ref="yearOfBirth" className="form-control form-control-sm" defaultValue={'Год'} required>
-									{[<option key={'54id'} disabled value="Год">Год</option>,...yearsOption]}
+								<select  ref="yearOfBirth" class="custom-select custom-select-sm"  required>
+									{[<option key={'54id'}  value=''  hidden>Год</option>,...yearsOption]}
 								</select>
 					    </div>
 							
