@@ -11,7 +11,7 @@ export const usersData = (state=[], action) =>{
 					dateOfBirth: action.dateOfBirth,
 					city: action.city,
 					address: action.address,
-					phoneNumber: "+7"+ action.phoneNumber
+					phoneNumber:  action.phoneNumber ? "+7"+action.phoneNumber : action.phoneNumber
 				}
 			];
 
